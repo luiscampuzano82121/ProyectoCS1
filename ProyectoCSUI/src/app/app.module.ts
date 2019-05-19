@@ -3,16 +3,20 @@ import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-
+import {DataService} from './data.service';
+import { HttpClientModule, HttpClient } from '@angular/common/http';
+import {CookieService} from 'ngx-cookie-service';
 @NgModule({
   declarations: [
     AppComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule
   ],
-  providers: [],
+  providers: [DataService, CookieService],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+}
