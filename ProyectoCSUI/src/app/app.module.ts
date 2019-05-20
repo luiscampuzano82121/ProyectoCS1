@@ -6,14 +6,20 @@ import { AppComponent } from './app.component';
 import {DataService} from './data.service';
 import { HttpClientModule, HttpClient } from '@angular/common/http';
 import {CookieService} from 'ngx-cookie-service';
+import { NavBarComponent } from './nav-bar/nav-bar.component';
+import { SignInComponent } from './sign-in/sign-in.component';
+import {FormsModule} from '@angular/forms';
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    NavBarComponent,
+    SignInComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule
   ],
   providers: [DataService, CookieService],
   bootstrap: [AppComponent]
