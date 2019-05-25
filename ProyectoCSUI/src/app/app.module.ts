@@ -6,7 +6,6 @@ import { AppComponent } from './app.component';
 import {DataService} from './data.service';
 import { HttpClientModule, HttpClient } from '@angular/common/http';
 import {CookieService} from 'ngx-cookie-service';
-import { NavBarComponent } from './nav-bar/nav-bar.component';
 import { SignInComponent } from './sign-in/sign-in.component';
 import {FormsModule} from '@angular/forms';
 import { EntrenadorComponent } from './entrenador/entrenador.component';
@@ -15,11 +14,12 @@ import { ConsultarmatriculadosComponent } from './common/consultarmatriculados/c
 import { DeportesComponent } from './common/deportes/deportes.component';
 import { EntrenadoresComponent } from './administrador/entrenadores/entrenadores.component';
 import { DestacadosComponent } from './administrador/destacados/destacados.component';
+import { NavBarEntrenadorComponent } from './entrenador/nav-bar-entrenador/nav-bar-entrenador.component';
+import { NavBarAdministradorComponent } from './administrador/nav-bar-administrador/nav-bar-administrador.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    NavBarComponent,
     SignInComponent,
     EntrenadorComponent,
     AdministradorComponent,
@@ -27,6 +27,8 @@ import { DestacadosComponent } from './administrador/destacados/destacados.compo
     DeportesComponent,
     EntrenadoresComponent,
     DestacadosComponent,
+    NavBarEntrenadorComponent,
+    NavBarAdministradorComponent,
 
   ],
   imports: [
