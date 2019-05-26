@@ -12,10 +12,12 @@ export class ConsultarmatriculadosComponent implements OnInit {
   constructor(private dataService: DataService) { }
   estudiantes: Estudiante[];
   ngOnInit() {
-    // this.getEstudiantes();
+    this.getEstudiantes();
   }
 
   getEstudiantes() {
     this.dataService.getEstudiantes().subscribe(data => this.estudiantes = data);
+   // this.dataService.getEstudiantes().subscribe(data => this.estudiantes = data);
+   // this.dataService.getNews().subscribe(data => this.estudiantes = data);
   }
 }

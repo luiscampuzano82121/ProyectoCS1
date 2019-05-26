@@ -18,15 +18,22 @@ export class DataService {
   constructor(private http: HttpClient, private cookies: CookieService) {}
 
   getHello() {
-    return this.http.get('http://192.168.1.54:8080/home/Estudiantes')
+    return this.http.get('http://192.168.1.54:8081/home/Estudiantes')
       .subscribe(data => {   // data is already a JSON object
         console.log(data);
       });
   }
 
+  getNews() {
+    const authToken = 'Bearer ' + this.cookies.get('authToken');
+    let headers = new HttpHeaders();
+    headers = headers.set('Authorization', authToken);
+    return this.http.get<Estudiante[]>('http://192.168.1.54:8081/home/Estudiantes');
+  }
+
    getEstudiantes() {
      const url = this.environment.getApiUrl() + this.environment.getUrlEstudiantes();
-     return this.http.get<Estudiante[]>('http://192.168.1.54:8080/home/Estudiantes');
+     return this.http.get<Estudiante[]>('http://192.168.1.54:8081/home/Estudiantes');
    }
 
   /*
