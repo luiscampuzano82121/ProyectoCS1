@@ -64,12 +64,12 @@ export class DataService {
   }
 
   createEstudiante(estudiante: Estudiante) {
-    const create = this.http.post('http://192.168.1.54:8081/home/Deportes', estudiante);
+    const create = this.http.post('http://192.168.1.54:8081/home/Estudiantes', estudiante);
     create.subscribe();
   }
 
   createEntrenador(entrenador: Entrenador) {
-    const create = this.http.post('http://192.168.1.54:8081/home/Deportes', entrenador);
+    const create = this.http.post('http://192.168.1.54:8081/home/Entrenadores', entrenador);
     create.subscribe();
   }
 
