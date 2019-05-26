@@ -30,4 +30,18 @@ public class BackendController {
         return estudiantes;
     }
 
+    @GetMapping("/Entrenadores")
+    public List getEntrenadores(){
+        String query = "select * from Entrenador";
+        List entrenadores = jdbcTemplate.queryForList(query);
+        return entrenadores;
+    }
+
+    @GetMapping("/Padres")
+    public List getPadres(){
+        String query = "select * from Padre";
+        List padres = jdbcTemplate.queryForList(query);
+        return padres;
+    }
+
 }
