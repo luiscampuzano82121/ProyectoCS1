@@ -58,6 +58,21 @@ export class DataService {
     create.subscribe();
   }
 
+  createDeporte(deporte: Deporte) {
+    const create = this.http.post('http://192.168.1.54:8081/home/Deportes', deporte);
+    create.subscribe();
+  }
+
+  createEstudiante(estudiante: Estudiante) {
+    const create = this.http.post('http://192.168.1.54:8081/home/Deportes', estudiante);
+    create.subscribe();
+  }
+
+  createEntrenador(entrenador: Entrenador) {
+    const create = this.http.post('http://192.168.1.54:8081/home/Deportes', entrenador);
+    create.subscribe();
+  }
+
   /*
     getBuilding(buildingId: number) {
       const authToken = 'Bearer ' + this.cookies.get('authToken');
