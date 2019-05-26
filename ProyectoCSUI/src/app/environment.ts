@@ -1,10 +1,10 @@
 export class Enviroment {
 
   public getApiUrl() {
-    return 'http://localhost:8080';
+    return 'http://192.168.1.54:8080';
   }
 
-  public getUrlNews() {
-    return '/news';
+  public getUrlEstudiantes() {
+    return '/home/Estudiantes';
   }
 }

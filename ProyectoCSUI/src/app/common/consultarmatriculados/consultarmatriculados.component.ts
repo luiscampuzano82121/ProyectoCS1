@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import {DataService} from '../../data.service';
+import {Estudiante} from '../../../models/Estudiante';
 
 @Component({
   selector: 'app-consultarmatriculados',
@@ -7,9 +9,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ConsultarmatriculadosComponent implements OnInit {
 
-  constructor() { }
-
+  constructor(private dataService: DataService) { }
+  estudiantes: Estudiante[];
   ngOnInit() {
+    // this.getEstudiantes();
   }
 
+  getEstudiantes() {
+    this.dataService.getEstudiantes().subscribe(data => this.estudiantes = data);
+  }
 }
