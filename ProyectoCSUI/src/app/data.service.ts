@@ -6,6 +6,10 @@ import {Enviroment} from './environment';
 import {catchError} from 'rxjs/internal/operators';
 import {Observable} from 'rxjs';
 import {Estudiante} from '../models/Estudiante';
+import {Entrenador} from '../models/Entrenador';
+import {Padre} from '../models/Padre';
+import {Deporte} from '../models/Deporte';
+import {Horario} from '../models/Horario';
 
 @Injectable({
   providedIn: 'root'
@@ -35,6 +39,24 @@ export class DataService {
      const url = this.environment.getApiUrl() + this.environment.getUrlEstudiantes();
      return this.http.get<Estudiante[]>('http://192.168.1.54:8081/home/Estudiantes');
    }
+
+  getEntrenadores() {
+    return this.http.get<Entrenador[]>('http://192.168.1.54:8081/home/Entrenadores');
+  }
+
+
+  getPadres() {
+    return this.http.get<Padre[]>('http://192.168.1.54:8081/home/Padres');
+  }
+
+  getDeportes() {
+    return this.http.get<Deporte[]>('http://192.168.1.54:8081/home/Deportes');
+  }
+
+  createHorario(horario: Horario) {
+    const create = this.http.post('http://192.168.1.54:8081/home/Estudiantes', horario);
+    create.subscribe();
+  }
 
   /*
     getBuilding(buildingId: number) {
