@@ -5,15 +5,32 @@
   </button>
   <div class="collapse navbar-collapse" id="navbarText">
     <ul class="navbar-nav mr-auto">
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownDestacados" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Deportes
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdownDestacados">
+          <a class="dropdown-item" href="#">Fútbol</a>
+          <a class="dropdown-item" href="#">Baloncesto</a>
+          <a class="dropdown-item" href="#">Boleibol</a>
+          <a class="dropdown-item" href="#">Rugby</a>
+          <a class="dropdown-item" href="#">Natación</a>
+
+        </div>
+      </li>
       <li class="nav-item">
         <a class="nav-link" routerLink="consultarmatriculados" routerLinkActive="active">Matriculados</a>
       </li>
-      <li class="nav-item">
-        <a class="nav-link" routerLink="deportes" routerLinkActive="active">Deportes</a>
-      </li>
+
     </ul>
-    <span class="navbar-text">
-      Navbar text with an inline element
+    <span class="nav-item dropdown">
+      <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownEntrenador" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Entrenador
+        </a>
+
+        <div class="dropdown-menu pull-right" role="menu" aria-labelledby="dLabel">
+          <a class="dropdown-left-manual" href="#">Cerrar sesión</a>
+        </div>
     </span>
   </div>
 </nav>

@@ -17,7 +17,5 @@ export class ConsultarmatriculadosComponent implements OnInit {
 
   getEstudiantes() {
     this.dataService.getEstudiantes().subscribe(data => this.estudiantes = data);
-   // this.dataService.getEstudiantes().subscribe(data => this.estudiantes = data);
-   // this.dataService.getNews().subscribe(data => this.estudiantes = data);
   }
 }

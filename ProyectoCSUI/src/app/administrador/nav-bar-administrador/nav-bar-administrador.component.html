@@ -15,14 +15,33 @@
         </div>
       </li>
       <li class="nav-item">
-        <a class="nav-link" routerLink="consultarmatriculados" routerLinkActive="active">Matriculados </a>
+        <a class="nav-link" routerLink="entrenadores" routerLinkActive="active">Entrenadores</a>
       </li>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownDestacados" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Deportes
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdownDestacados">
+          <a class="dropdown-item" href="#">Fútbol</a>
+          <a class="dropdown-item" href="#">Baloncesto</a>
+          <a class="dropdown-item" href="#">Boleibol</a>
+          <a class="dropdown-item" href="#">Rugby</a>
+          <a class="dropdown-item" href="#">Natación</a>
+
+        </div>
+      </li>
+
       <li class="nav-item">
-        <a class="nav-link" routerLink="deportes" routerLinkActive="active">Deportes</a>
+        <a class="nav-link" routerLink="consultarmatriculados" routerLinkActive="active">Matriculados</a>
       </li>
     </ul>
-    <span class="navbar-text">
-      Navbar text with an inline element
+    <span class="nav-item dropdown">
+      <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownAdministrador" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Adminsitrador
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdownAdministrador">
+          <a class="dropdown-left-manual" href="#">Cerrar sesión</a>
+        </div>
     </span>
   </div>
 </nav>

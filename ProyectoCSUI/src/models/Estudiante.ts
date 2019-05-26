@@ -1,7 +1,7 @@
 export class Estudiante {
   CodigoEstudiante: string;
   Nombre: string;
-  identificacion: string;
+  Cedula: string;
   telefono: string;
   Direccion: string;
   Estado: string;
