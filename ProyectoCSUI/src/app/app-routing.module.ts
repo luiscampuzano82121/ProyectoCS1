@@ -4,9 +4,10 @@ import {SignInComponent} from './sign-in/sign-in.component';
 import {AdministradorComponent} from './administrador/administrador.component';
 import {EntrenadorComponent} from './entrenador/entrenador.component';
 import {ConsultarmatriculadosComponent} from './common/consultarmatriculados/consultarmatriculados.component';
-import {DeportesComponent} from './common/deportes/deportes.component';
 import {EntrenadoresComponent} from './administrador/entrenadores/entrenadores.component';
 import {DestacadosComponent} from './administrador/destacados/destacados.component';
+import {DeportesAdministradorComponent} from './administrador/deportes-administrador/deportes-administrador.component';
+import {DeportesEntrenadorComponent} from './entrenador/deportes-entrenador/deportes-entrenador.component';
 
 const routes: Routes = [
   { path: '', component: SignInComponent, pathMatch: 'full'},
@@ -17,14 +18,14 @@ const routes: Routes = [
       { path: 'consultarmatriculados', component: ConsultarmatriculadosComponent},
       { path: 'entrenadores', component: EntrenadoresComponent},
       { path: 'destacados', component: DestacadosComponent},
-      { path: 'deportes', component: DeportesComponent}
+      { path: 'deportes-administrador', component: DeportesAdministradorComponent}
     ]
   },
   { path: 'entrenador', component: EntrenadorComponent,
     children: [
       { path: '', component: ConsultarmatriculadosComponent, pathMatch: 'full'},
-      { path: 'consult0armatriculados', component: ConsultarmatriculadosComponent},
-      { path: 'deportes', component: DeportesComponent}
+      { path: 'consultarmatriculados', component: ConsultarmatriculadosComponent},
+      { path: 'deportes-entrenador', component: DeportesEntrenadorComponent}
       ]},
    { path: '**', redirectTo: 'sign-in', pathMatch: 'full'},
       ];
