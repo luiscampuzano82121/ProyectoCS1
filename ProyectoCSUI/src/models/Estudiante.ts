@@ -6,4 +6,5 @@ export class Estudiante {
   Direccion: string;
   Estado: string;
   Pago: boolean;
+  Calificacion: number;
 }

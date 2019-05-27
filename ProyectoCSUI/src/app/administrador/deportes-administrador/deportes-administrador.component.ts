@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import {Deporte} from '../../../models/Deporte';
+import {DataService} from '../../data.service';
+import {DeporteEnviar} from '../../../models/DeporteEnviar';
 
 @Component({
   selector: 'app-deportes-administrador',
@@ -6,10 +9,18 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./deportes-administrador.component.css']
 })
 export class DeportesAdministradorComponent implements OnInit {
-
-  constructor() { }
+  deportes: Deporte[];
+  deporteToCreate: DeporteEnviar;
+  constructor(private dataService: DataService) { }
 
   ngOnInit() {
+    this.deporteToCreate = new DeporteEnviar();
+    this.dataService.getDeportes().subscribe(data => this.deportes = data);
+  }
+
+  createDeporteEnviar() {
+    this.dataService.createDeporte(this.deporteToCreate);
+    this.deporteToCreate = new DeporteEnviar();
   }
 
 }

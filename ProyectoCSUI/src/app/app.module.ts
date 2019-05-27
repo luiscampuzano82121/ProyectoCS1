@@ -17,6 +17,8 @@ import { NavBarEntrenadorComponent } from './entrenador/nav-bar-entrenador/nav-b
 import { NavBarAdministradorComponent } from './administrador/nav-bar-administrador/nav-bar-administrador.component';
 import { DeportesEntrenadorComponent } from './entrenador/deportes-entrenador/deportes-entrenador.component';
 import { DeportesAdministradorComponent } from './administrador/deportes-administrador/deportes-administrador.component';
+import { MejoresEstudiantesComponent } from './administrador/mejores-estudiantes/mejores-estudiantes.component';
+import { MejoresEntrenadoresComponent } from './administrador/mejores-entrenadores/mejores-entrenadores.component';
 
 @NgModule({
   declarations: [
@@ -31,6 +33,8 @@ import { DeportesAdministradorComponent } from './administrador/deportes-adminis
     NavBarAdministradorComponent,
     DeportesEntrenadorComponent,
     DeportesAdministradorComponent,
+    MejoresEstudiantesComponent,
+    MejoresEntrenadoresComponent,
 
   ],
   imports: [

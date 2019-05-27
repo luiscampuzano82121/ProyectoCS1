@@ -8,6 +8,8 @@ import {EntrenadoresComponent} from './administrador/entrenadores/entrenadores.c
 import {DestacadosComponent} from './administrador/destacados/destacados.component';
 import {DeportesAdministradorComponent} from './administrador/deportes-administrador/deportes-administrador.component';
 import {DeportesEntrenadorComponent} from './entrenador/deportes-entrenador/deportes-entrenador.component';
+import {MejoresEntrenadoresComponent} from './administrador/mejores-entrenadores/mejores-entrenadores.component';
+import {MejoresEstudiantesComponent} from './administrador/mejores-estudiantes/mejores-estudiantes.component';
 
 const routes: Routes = [
   { path: '', component: SignInComponent, pathMatch: 'full'},
@@ -18,7 +20,9 @@ const routes: Routes = [
       { path: 'consultarmatriculados', component: ConsultarmatriculadosComponent},
       { path: 'entrenadores', component: EntrenadoresComponent},
       { path: 'destacados', component: DestacadosComponent},
-      { path: 'deportes-administrador', component: DeportesAdministradorComponent}
+      { path: 'deportes-administrador', component: DeportesAdministradorComponent},
+      { path: 'mejores-entrenadores', component: MejoresEntrenadoresComponent},
+      { path: 'mejores-estudiantes', component: MejoresEstudiantesComponent}
     ]
   },
   { path: 'entrenador', component: EntrenadorComponent,

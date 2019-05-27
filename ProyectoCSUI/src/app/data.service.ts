@@ -10,6 +10,7 @@ import {Entrenador} from '../models/Entrenador';
 import {Padre} from '../models/Padre';
 import {Deporte} from '../models/Deporte';
 import {Horario} from '../models/Horario';
+import {DeporteEnviar} from '../models/DeporteEnviar';
 
 @Injectable({
   providedIn: 'root'
@@ -58,8 +59,8 @@ export class DataService {
     create.subscribe();
   }
 
-  createDeporte(deporte: Deporte) {
-    const create = this.http.post('http://192.168.1.54:8081/home/Deportes', deporte);
+  createDeporte(deporteEnviar: DeporteEnviar) {
+    const create = this.http.post('http://192.168.1.54:8081/home/Deportes', deporteEnviar);
     create.subscribe();
   }
 

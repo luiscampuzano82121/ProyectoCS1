@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import {DataService} from "../../data.service";
+import {Entrenador} from "../../../models/Entrenador";
 
 @Component({
   selector: 'app-entrenadores',
@@ -6,10 +8,11 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./entrenadores.component.css']
 })
 export class EntrenadoresComponent implements OnInit {
-
-  constructor() { }
+  entrenadores: Entrenador[];
+  constructor(private dataService: DataService) { }
 
   ngOnInit() {
+    this.dataService.getEntrenadores().subscribe(data => this.entrenadores = data);
   }
 
 }

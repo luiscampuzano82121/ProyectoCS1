@@ -1,6 +1,6 @@
 export class Deporte {
-  Codigo: number;
-  Nombre: String;
+  Codigo: string;
+  Nombre: string;
   Tipo: string;
-  Costo: number;
+  Costo: string;
 }

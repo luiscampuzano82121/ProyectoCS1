@@ -5,4 +5,5 @@ export class Entrenador {
  Telefono: string;
  Direccion: string;
  Nit: string;
+ Calificacion: number;
 }
