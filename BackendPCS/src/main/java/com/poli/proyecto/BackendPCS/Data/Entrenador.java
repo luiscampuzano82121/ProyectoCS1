@@ -1,33 +1,30 @@
 package com.poli.proyecto.BackendPCS.Data;
 
-public class Estudiante {
-
-    String codigoEstudiante;
+public class Entrenador {
+    String codigoEntrenador;
     String nombre;
     String cedula;
     String telefono;
     String direccion;
-    String estado;
-    boolean pago;
-    float calificacion;
+    String nit;
+    int calificacion;
 
-    public Estudiante(String codigoEstudiante, String nombre, String cedula, String telefono, String direccion, String estado, boolean pago, float calificacion) {
-        this.codigoEstudiante = codigoEstudiante;
+    public Entrenador(String codigoEntrenador, String nombre, String cedula, String telefono, String direccion,int calificacion ,String nit) {
+        this.codigoEntrenador = codigoEntrenador;
         this.nombre = nombre;
         this.cedula = cedula;
         this.telefono = telefono;
         this.direccion = direccion;
-        this.estado = estado;
-        this.pago = pago;
         this.calificacion = calificacion;
+        this.nit = nit;
     }
 
-    public String getCodigoEstudiante() {
-        return codigoEstudiante;
+    public String getCodigoEntrenador() {
+        return codigoEntrenador;
     }
 
-    public void setCodigoEstudiante(String codigoEstudiante) {
-        this.codigoEstudiante = codigoEstudiante;
+    public void setCodigoEntrenador(String codigoEntrenador) {
+        this.codigoEntrenador = codigoEntrenador;
     }
 
     public String getNombre() {
@@ -62,40 +59,31 @@ public class Estudiante {
         this.direccion = direccion;
     }
 
-    public String getEstado() {
-        return estado;
+    public String getNit() {
+        return nit;
     }
 
-    public void setEstado(String estado) {
-        this.estado = estado;
+    public void setNit(String nit) {
+        this.nit = nit;
     }
 
-    public boolean isPago() {
-        return pago;
-    }
-
-    public void setPago(boolean pago) {
-        this.pago = pago;
-    }
-
-    public float getCalificacion() {
+    public int getCalificacion() {
         return calificacion;
     }
 
-    public void setCalificacion(float calificacion) {
+    public void setCalificacion(int calificacion) {
         this.calificacion = calificacion;
     }
 
     @Override
     public String toString() {
-        return "Estudiante{" +
-                "codigoEstudiante='" + codigoEstudiante + '\'' +
+        return "Entrenador{" +
+                "codigoEntrenador='" + codigoEntrenador + '\'' +
                 ", nombre='" + nombre + '\'' +
                 ", cedula='" + cedula + '\'' +
                 ", telefono='" + telefono + '\'' +
                 ", direccion='" + direccion + '\'' +
-                ", estado='" + estado + '\'' +
-                ", pago=" + pago +
+                ", nit='" + nit + '\'' +
                 ", calificacion=" + calificacion +
                 '}';
     }

@@ -7,17 +7,19 @@ import org.springframework.stereotype.Service;
 public class Deporte {
 
     String codigo;
+    String nombre;
     String tipo;
     String costo;
 
-    public Deporte() {
-
-    }
-
-    public Deporte(String codigo, String tipo, String costo) {
+    public Deporte(String codigo, String nombre, String tipo, String costo) {
         this.codigo = codigo;
+        this.nombre = nombre;
         this.tipo = tipo;
         this.costo = costo;
+    }
+
+    public Deporte() {
+
     }
 
     public String getCodigo() {
@@ -44,10 +46,19 @@ public class Deporte {
         this.costo = costo;
     }
 
+    public String getNombre() {
+        return nombre;
+    }
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+
     @Override
     public String toString() {
         return "Deporte{" +
                 "codigo='" + codigo + '\'' +
+                ", nombre='" + nombre + '\'' +
                 ", tipo='" + tipo + '\'' +
                 ", costo='" + costo + '\'' +
                 '}';

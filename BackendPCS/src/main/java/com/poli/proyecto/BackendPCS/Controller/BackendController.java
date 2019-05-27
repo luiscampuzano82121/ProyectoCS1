@@ -1,6 +1,8 @@
 package com.poli.proyecto.BackendPCS.Controller;
 
 import com.poli.proyecto.BackendPCS.Data.Deporte;
+import com.poli.proyecto.BackendPCS.Data.Entrenador;
+import com.poli.proyecto.BackendPCS.Data.Estudiante;
 import com.poli.proyecto.BackendPCS.Service.BackendService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
@@ -17,9 +19,7 @@ public class BackendController {
 
     private JdbcTemplate jdbcTemplate;
 
-    private BackendService backendService;
-
-    Deporte deporte;
+    BackendService backendService = new BackendService();
 
     public BackendController() {
         BackendService con = new BackendService();
@@ -33,16 +33,12 @@ public class BackendController {
 
     @GetMapping("/Estudiantes")
     public List getEstudiantes() {
-        String query = "select * from Estudiante";
-        List estudiantes = jdbcTemplate.queryForList(query);
-        return estudiantes;
+        return backendService.getAllEstudiantes();
     }
 
     @GetMapping("/Entrenadores")
     public List getEntrenadores() {
-        String query = "select * from Entrenador";
-        List entrenadores = jdbcTemplate.queryForList(query);
-        return entrenadores;
+        return backendService.getAllEntrenadores();
     }
 
     @GetMapping("/Padres")
@@ -54,31 +50,23 @@ public class BackendController {
 
     @GetMapping("/Deportes")
     public List getDeportes() {
-        String query = "select * from Deporte";
-        List deportes = jdbcTemplate.queryForList(query);
-        System.out.println("Deportes: "+deportes);
-        return deportes;
+        return backendService.getAllDeportes();
     }
 
     @PostMapping(value = "/Deportes")
-    public void addDeporte(@RequestBody Deporte deporte) {
-        try {
+    public String addDeporte(@RequestBody Deporte deporte) {
+        return backendService.addDeporte(deporte);
 
-            System.out.println("Deporte : "+deporte.toString());
+    }
 
-            String query = "INSERT INTO Deporte (`Codigo`,`Tipo`,`costo`) VALUES ("
-                    + "`" + deporte.getCodigo() + "`" + ","
-                    + "`" + deporte.getTipo() + "`" + ","
-                    + "`" + deporte.getCosto() + "`" + ")";
+    @PostMapping(value = "/Estudiantes")
+    public String addEstudiante(@RequestBody Estudiante estudiante) {
+        return backendService.addEstudiante(estudiante);
+    }
 
-           //String query = "INSERT INTO `Deporte`(`Codigo`,`Tipo`,`Costo` ) VALUES (\"123\",\"Grupal\",\"500000\")";
-
-            jdbcTemplate.execute(query);
-            //return jdbcTemplate.execute(query);
-            //return deporte;
-        } catch (Exception e) {
-            //return deporte;
-        }
+    @PostMapping(value = "/Entrenadores")
+    public String addEntrenador(@RequestBody Entrenador entrenador) {
+        return backendService.addEntrenador(entrenador);
     }
 
 }
