@@ -24,6 +24,12 @@ public class BackendService {
         return dataSource;
     }
 
+    public List getAllPadres(){
+        String query = "select * from Padre";
+        List padres = jdbcTemplate.queryForList(query);
+        return padres;
+    }
+
     public List getAllEntrenadores() {
         String query = "select * from Entrenador";
         List entrenadores = jdbcTemplate.queryForList(query);
@@ -55,7 +61,7 @@ public class BackendService {
                     + "'" + deporte.getCosto() + "'" + ")";
 
             jdbcTemplate.execute(query);
-            return "Guardado Exitoso";
+            return "Operacion Exitosa";
         } catch (Exception e) {
             return "Error:" + e.getMessage();
         }
@@ -67,7 +73,7 @@ public class BackendService {
             System.out.println("Estudiante : " + estudiante.toString());
 
             String query = "INSERT INTO Estudiante (`CodigoEntrenador`,`Nombre`,`Cedula`,`Telefono`,`Direccion`,`Calificacion`,`Estado`,Pago) VALUES ("
-                    + "'" + estudiante.getCodigoEstudiante() + "'" + ","
+                    + "'" + estudiante.getCodigoEntrenador() + "'" + ","
                     + "'" + estudiante.getNombre() + "'" + ","
                     + "'" + estudiante.getCedula() + "'" + ","
                     + "'" + estudiante.getTelefono() + "'" + ","
@@ -77,7 +83,7 @@ public class BackendService {
                     + "" + estudiante.isPago() + "" + ")";
 
             jdbcTemplate.execute(query);
-            return "Guardado Exitoso";
+            return "Operacion Exitosa";
         } catch (Exception e) {
             return "Error:" + e.getMessage();
         }
@@ -86,7 +92,7 @@ public class BackendService {
     public String addEntrenador(Entrenador entrenador) {
         try {
 
-            System.out.println("Deporte : " + entrenador.toString());
+            System.out.println("Entrenador : " + entrenador.toString());
 
             String query = "INSERT INTO Entrenador (`CodigoEntrenador`,`Nombre`,`Cedula`,`Telefono`,`Direccion`,`Calificacion`,`Nit`) VALUES ("
                     + "'" + entrenador.getCodigoEntrenador() + "'" + ","

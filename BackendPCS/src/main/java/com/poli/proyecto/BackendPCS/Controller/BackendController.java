@@ -17,13 +17,11 @@ import java.util.List;
 @RequestMapping(path = "/home")
 public class BackendController {
 
-    private JdbcTemplate jdbcTemplate;
+    //Controller que recibe las peticiones
 
     BackendService backendService = new BackendService();
 
     public BackendController() {
-        BackendService con = new BackendService();
-        this.jdbcTemplate = new JdbcTemplate(con.Conectar());
     }
 
     @GetMapping("/HolaMundo")
@@ -43,9 +41,7 @@ public class BackendController {
 
     @GetMapping("/Padres")
     public List getPadres() {
-        String query = "select * from Padre";
-        List padres = jdbcTemplate.queryForList(query);
-        return padres;
+        return backendService.getAllPadres();
     }
 
     @GetMapping("/Deportes")

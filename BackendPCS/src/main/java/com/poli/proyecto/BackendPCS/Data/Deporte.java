@@ -1,9 +1,6 @@
 package com.poli.proyecto.BackendPCS.Data;
 
 
-import org.springframework.stereotype.Service;
-
-@Service
 public class Deporte {
 
     String codigo;

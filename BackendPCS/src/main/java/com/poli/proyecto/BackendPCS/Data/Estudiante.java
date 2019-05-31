@@ -2,7 +2,7 @@ package com.poli.proyecto.BackendPCS.Data;
 
 public class Estudiante {
 
-    String codigoEstudiante;
+    String codigoEntrenador;
     String nombre;
     String cedula;
     String telefono;
@@ -11,8 +11,8 @@ public class Estudiante {
     boolean pago;
     float calificacion;
 
-    public Estudiante(String codigoEstudiante, String nombre, String cedula, String telefono, String direccion, String estado, boolean pago, float calificacion) {
-        this.codigoEstudiante = codigoEstudiante;
+    public Estudiante(String codigoEntrenador, String nombre, String cedula, String telefono, String direccion, String estado, boolean pago, float calificacion) {
+        this.codigoEntrenador = codigoEntrenador;
         this.nombre = nombre;
         this.cedula = cedula;
         this.telefono = telefono;
@@ -22,12 +22,12 @@ public class Estudiante {
         this.calificacion = calificacion;
     }
 
-    public String getCodigoEstudiante() {
-        return codigoEstudiante;
+    public String getCodigoEntrenador() {
+        return codigoEntrenador;
     }
 
-    public void setCodigoEstudiante(String codigoEstudiante) {
-        this.codigoEstudiante = codigoEstudiante;
+    public void setCodigoEntrenador(String codigoEntrenador) {
+        this.codigoEntrenador = codigoEntrenador;
     }
 
     public String getNombre() {
@@ -89,7 +89,7 @@ public class Estudiante {
     @Override
     public String toString() {
         return "Estudiante{" +
-                "codigoEstudiante='" + codigoEstudiante + '\'' +
+                "codigoEstudiante='" + codigoEntrenador + '\'' +
                 ", nombre='" + nombre + '\'' +
                 ", cedula='" + cedula + '\'' +
                 ", telefono='" + telefono + '\'' +
