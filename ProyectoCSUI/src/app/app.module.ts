@@ -19,6 +19,10 @@ import { DeportesEntrenadorComponent } from './entrenador/deportes-entrenador/de
 import { DeportesAdministradorComponent } from './administrador/deportes-administrador/deportes-administrador.component';
 import { MejoresEstudiantesComponent } from './administrador/mejores-estudiantes/mejores-estudiantes.component';
 import { MejoresEntrenadoresComponent } from './administrador/mejores-entrenadores/mejores-entrenadores.component';
+import { LogoComponent } from './logo/logo.component';
+import { FootergeneralComponent } from './common/footergeneral/footergeneral.component';
+import { HorariosComponent } from './entrenador/deportes-entrenador/horarios/horarios.component';
+import { ListadocategoriaComponent } from './entrenador/deportes-entrenador/listadocategoria/listadocategoria.component';
 
 @NgModule({
   declarations: [
@@ -35,6 +39,10 @@ import { MejoresEntrenadoresComponent } from './administrador/mejores-entrenador
     DeportesAdministradorComponent,
     MejoresEstudiantesComponent,
     MejoresEntrenadoresComponent,
+    LogoComponent,
+    FootergeneralComponent,
+    HorariosComponent,
+    ListadocategoriaComponent,
 
   ],
   imports: [

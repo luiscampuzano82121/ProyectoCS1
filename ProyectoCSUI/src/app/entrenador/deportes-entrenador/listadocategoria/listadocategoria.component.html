@@ -1,0 +1,102 @@
+<div class="divtables">
+  <div class="modal fade" id="client-information" tabindex="-1" role="dialog" aria-labelledby="client-informationTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Calificar estudiante</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <div class="input-group mb-3">
+              <div class="form-group">
+                <select class="form-control mr-sm-1" name="combo">
+                  <!-- Opciones de la lista -->
+                  <option value="1">Objetivo1</option>
+                  <option value="2">Objetivo2</option> <!-- Opción por defecto -->
+                  <option value="3">Objetivo3</option>
+                </select>
+
+              </div>
+              <div class="form-group">
+                <select class="form-control mr-sm-1" name="combo">
+                  <!-- Opciones de la lista -->
+                  <option value="1">0</option>
+                  <option value="2">1</option> <!-- Opción por defecto -->
+                  <option value="3">2</option>
+                  <option value="4">3</option>
+                  <option value="5">4</option>
+                  <option value="6">5</option>
+                </select>
+
+              </div>
+          </div>
+
+            <div class="form-group">
+              <input class="form-control mr-sm-2" id="name" type="text" placeholder="Ingrese descripción">
+            </div>
+
+
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+            <button type="button" class="btn btn-primary"  data-dismiss="modal">Guardar</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!--Modal2-->
+  <div class="modal fade" id="client-information2" tabindex="-1" role="dialog" aria-labelledby="client-informationTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Asignar Objetivo</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+
+
+        <div class="modal-body">
+          <div class="form-group">
+            <input class="form-control mr-sm-2" id="name3" type="text" placeholder="Ingrese nombre del objetivo">
+          </div>
+          <div class="form-group">
+            <input class="form-control mr-sm-2" id="name2" type="text" placeholder="Ingrese descripción del objetivo">
+          </div>
+
+
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+            <button type="button" class="btn btn-primary"  data-dismiss="modal">Guardar</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <h3 class="tablas">Categoria ..........</h3>
+
+  <table class="table table-hover">
+    <thead>
+    <tr>
+      <th scope="col">Nombre</th>
+      <th scope="col">identificación</th>
+      <th scope="col">Calificar</th>
+      <th scope="col">Objetivos</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>Aldahir</td>
+      <td>1152702267</td>
+      <td>
+        <button class="btn btn-outline-primary" data-toggle="modal" data-target="#client-information">Calificar estudiante</button>
+      </td>
+      <td>
+        <button class="btn btn-outline-primary" data-toggle="modal" data-target="#client-information2">Asignar Objetivo</button>
+      </td>
+
+    </tbody>
+  </table>
+</div>

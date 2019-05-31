@@ -1,12 +1,10 @@
 <div class="divtables">
-  <td>
-    <button class="btn btn-outline-success" data-toggle="modal" data-target="#client-information">Agregar deporte</button>
-  </td>
+
   <div class="modal fade" id="client-information" tabindex="-1" role="dialog" aria-labelledby="client-informationTitle" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered" role="document">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title">Reserva de habitación simple</h5>
+          <h5 class="modal-title">Nuevo deporte</h5>
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
           </button>
@@ -15,7 +13,7 @@
 
         <div class="modal-body">
           <div class="form-group">
-            <input class="form-control mr-sm-2" id="name" type="text" [(ngModel)]="deporteToCreate.codigo" placeholder="Codigo">
+            <input class="form-control mr-sm-2" id="name" type="text" [(ngModel)]="deporteToCreate.codigo" placeholder="Código">
           </div>
           <div class="form-group">
             <input class="form-control mr-sm-2" id="lastName" type="text" [(ngModel)]="deporteToCreate.nombre" placeholder="Nombre">
@@ -26,24 +24,28 @@
           </div>
 
           <div class="form-group">
-            <input class="form-control mr-sm-2" id="startDate" type="text" [(ngModel)]="deporteToCreate.costo" placeholder="Costo">
+            <input class="form-control mr-sm-2" id="startDate" type="text" [(ngModel)]="deporteToCreate.costo" placeholder="Valor Mensual">
           </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
-          <button type="button" class="btn btn-primary" (click)="createDeporteEnviar()" data-dismiss="modal"> Crear Deporte</button>
+          <button type="button" class="btn btn-primary" (click)="createDeporteEnviar()" data-dismiss="modal">Agregar</button>
         </div>
       </div>
     </div>
   </div>
   </div>
+  <td class="boton">
+    <button  class="btn btn-outline-primary" data-toggle="modal" data-target="#client-information">Agregar deporte</button>
+  </td>
   <h3 class="tablas">Lista de deportes</h3>
+
   <table class="table table-hover">
     <thead>
     <tr>
       <th scope="col">Código</th>
       <th scope="col">Nombre</th>
       <th scope="col">Tipo</th>
-      <th scope="col">Mensualidad</th>
+      <th scope="col">Valor Mensual</th>
     </tr>
     </thead>
     <tbody>
@@ -52,9 +54,8 @@
       <td>{{deporte.Nombre}}</td>
       <td>{{deporte.Tipo}}</td>
       <td>{{deporte.Costo}}</td>
-
     </tr>
-
     </tbody>
   </table>
 </div>
+<router-outlet></router-outlet>
