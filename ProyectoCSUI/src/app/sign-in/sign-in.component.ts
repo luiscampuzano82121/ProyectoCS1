@@ -7,8 +7,8 @@ import {DataService} from '../data.service';
   styleUrls: ['./sign-in.component.css']
 })
 export class SignInComponent implements OnInit {
-  login = ''
-  password = ''
+  login = 'admin';
+  password = '123456';
   constructor(private dataService: DataService) { }
 
   ngOnInit() {

@@ -11,6 +11,7 @@ import {Padre} from '../models/Padre';
 import {Deporte} from '../models/Deporte';
 import {Horario} from '../models/Horario';
 import {DeporteEnviar} from '../models/DeporteEnviar';
+import {EntrenadorEnviar} from '../models/EntrenadorEnviar';
 
 @Injectable({
   providedIn: 'root'
@@ -21,9 +22,10 @@ export class DataService {
   // url = 'http://localhost:8080/home/HolaMundo';
   private environment: Enviroment = new Enviroment();
   constructor(private http: HttpClient, private cookies: CookieService) {}
-
+  // url = 'http://192.168.1.54'
+  url = 'http://192.168.43.96';
   getHello() {
-    return this.http.get('http://192.168.1.54:8081/home/Estudiantes')
+    return this.http.get(this.url + ':8081/home/Estudiantes')
       .subscribe(data => {   // data is already a JSON object
         console.log(data);
       });
@@ -33,44 +35,44 @@ export class DataService {
     const authToken = 'Bearer ' + this.cookies.get('authToken');
     let headers = new HttpHeaders();
     headers = headers.set('Authorization', authToken);
-    return this.http.get<Estudiante[]>('http://192.168.1.54:8081/home/Estudiantes');
+    return this.http.get<Estudiante[]>(this.url + ':8081/home/Estudiantes');
   }
 
    getEstudiantes() {
      const url = this.environment.getApiUrl() + this.environment.getUrlEstudiantes();
-     return this.http.get<Estudiante[]>('http://192.168.1.54:8081/home/Estudiantes');
+     return this.http.get<Estudiante[]>(this.url + ':8081/home/Estudiantes');
    }
 
   getEntrenadores() {
-    return this.http.get<Entrenador[]>('http://192.168.1.54:8081/home/Entrenadores');
+    return this.http.get<Entrenador[]>(this.url + ':8081/home/Entrenadores');
   }
 
 
   getPadres() {
-    return this.http.get<Padre[]>('http://192.168.1.54:8081/home/Padres');
+    return this.http.get<Padre[]>(this.url + ':8081/home/Padres');
   }
 
   getDeportes() {
-    return this.http.get<Deporte[]>('http://192.168.1.54:8081/home/Deportes');
+    return this.http.get<Deporte[]>(this.url + ':8081/home/Deportes');
   }
 
   createHorario(horario: Horario) {
-    const create = this.http.post('http://192.168.1.54:8081/home/Estudiantes', horario);
+    const create = this.http.post(this.url + ':8081/home/Estudiantes', horario);
     create.subscribe();
   }
 
   createDeporte(deporteEnviar: DeporteEnviar) {
-    const create = this.http.post('http://192.168.1.54:8081/home/Deportes', deporteEnviar);
+    const create = this.http.post(this.url + ':8081/home/Deportes', deporteEnviar);
     create.subscribe();
   }
 
   createEstudiante(estudiante: Estudiante) {
-    const create = this.http.post('http://192.168.1.54:8081/home/Estudiantes', estudiante);
+    const create = this.http.post(this.url + ':8081/home/Estudiantes', estudiante);
     create.subscribe();
   }
 
-  createEntrenador(entrenador: Entrenador) {
-    const create = this.http.post('http://192.168.1.54:8081/home/Entrenadores', entrenador);
+  createEntrenador(entrenador: EntrenadorEnviar) {
+    const create = this.http.post(this.url + ':8081/home/Entrenadores', entrenador);
     create.subscribe();
   }
 

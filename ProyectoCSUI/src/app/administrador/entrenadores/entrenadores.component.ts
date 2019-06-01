@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {DataService} from '../../data.service';
 import {Entrenador} from '../../../models/Entrenador';
 import * as jsPDF from 'jspdf';
+import {EntrenadorEnviar} from '../../../models/EntrenadorEnviar';
 
 @Component({
   selector: 'app-entrenadores',
@@ -10,7 +11,7 @@ import * as jsPDF from 'jspdf';
 })
 export class EntrenadoresComponent implements OnInit {
   entrenadores: Entrenador[];
-  entrenadorToCreate: Entrenador;
+  entrenadorToCreate: EntrenadorEnviar;
   constructor(private dataService: DataService) { }
 
   downloadPdf() {
@@ -44,7 +45,12 @@ export class EntrenadoresComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.entrenadorToCreate = new EntrenadorEnviar();
     this.dataService.getEntrenadores().subscribe(data => this.entrenadores = data);
+  }
+
+  createEntrenador() {
+    this.dataService.createEntrenador(this.entrenadorToCreate);
   }
 
 }

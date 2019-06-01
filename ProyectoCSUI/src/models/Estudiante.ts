@@ -1,5 +1,5 @@
 export class Estudiante {
-  CodigoEstudiante: string;
+  CodigoEntrenador: string;
   Nombre: string;
   Cedula: string;
   telefono: string;

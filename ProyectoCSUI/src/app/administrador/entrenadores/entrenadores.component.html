@@ -12,22 +12,32 @@
 
         <div class="modal-body">
           <div class="form-group">
-            <input class="form-control mr-sm-2" id="name" type="text" [(ngModel)]="entrenadorToCreate.codigo" placeholder="Código">
+            <input class="form-control mr-sm-2" id="name" type="text" [(ngModel)]="entrenadorToCreate.codigoEntrenador" placeholder="Código">
           </div>
           <div class="form-group">
             <input class="form-control mr-sm-2" id="lastName" type="text" [(ngModel)]="entrenadorToCreate.nombre" placeholder="Nombre">
           </div>
 
           <div class="form-group">
-            <input  class="form-control mr-sm-2" id="cedula" type="text" [(ngModel)]="entrenadorToCreate.tipo" placeholder="Identificación">
+            <input  class="form-control mr-sm-2" id="cedula" type="text" [(ngModel)]="entrenadorToCreate.cedula" placeholder="Identificación">
           </div>
 
           <div class="form-group">
-            <input class="form-control mr-sm-2" id="startDate" type="text" [(ngModel)]="entrenadorToCreate.costo" placeholder="Télefono">
+            <input class="form-control mr-sm-2" id="telefono" type="text" [(ngModel)]="entrenadorToCreate.telefono" placeholder="Télefono">
+          </div>
+
+          <div class="form-group">
+            <input class="form-control mr-sm-2" id="direccion" type="text" [(ngModel)]="entrenadorToCreate.direccion" placeholder="Direcion">
+          </div>
+          <div class="form-group">
+            <input class="form-control mr-sm-2" id="calificacion" type="number" [(ngModel)]="entrenadorToCreate.calificacion" placeholder="Calificacion">
+          </div>
+          <div class="form-group">
+            <input class="form-control mr-sm-2" id="nit" type="text" [(ngModel)]="entrenadorToCreate.nit" placeholder="Nit">
           </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
-            <button type="button" class="btn btn-primary" (click)="entrenadorToCreate()" data-dismiss="modal">Agregar</button>
+            <button type="button" class="btn btn-primary" (click)="createEntrenador()" data-dismiss="modal">Agregar</button>
           </div>
         </div>
       </div>
@@ -37,7 +47,7 @@
     <button  class="btn btn-outline-primary" data-toggle="modal" data-target="#client-information">Agregar entrenador</button>
   </td>
   <td class="boton2">
-    <button  class="btn btn-outline-primary" data-toggle="modal" (click)="downloadPdf()">Imprimir</button>
+    <button  class="btn btn-outline-primary" data-toggle="modal" (click)="downloadPdf()">Descargar PDF</button>
   </td>
   <h3 class="tablas">Lista de entrenadores</h3>
   <table class="table table-hover">
@@ -47,7 +57,9 @@
       <th scope="col">Nombre</th>
       <th scope="col">Identificación</th>
       <th scope="col">Télefono</th>
-      <th scope="col">Configuración</th>
+      <th scope="col">Direccion</th>
+      <th scope="col">Calificacion</th>
+      <th scope="col">Nit</th>
     </tr>
     </thead>
     <tbody>
@@ -56,6 +68,9 @@
       <td>{{entrenador.Nombre}}</td>
       <td>{{entrenador.Cedula}}</td>
       <td>{{entrenador.Telefono}}</td>
+      <td>{{entrenador.Direccion}}</td>
+      <td>{{entrenador.Calificacion}}</td>
+      <td>{{entrenador.Nit}}</td>
 
     </tr>
 

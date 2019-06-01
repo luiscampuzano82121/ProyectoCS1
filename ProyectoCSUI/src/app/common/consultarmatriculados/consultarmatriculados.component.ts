@@ -15,20 +15,10 @@ export class ConsultarmatriculadosComponent implements OnInit {
   ngOnInit() {
     this.estudiantes = [];
     this.getEstudiantes();
-    /*
-    const estudiante = new Estudiante();
-    estudiante.Calificacion = 3;
-    estudiante.Estado = 'pago';
-    estudiante.telefono = '2132144';
-    estudiante.Direccion = 'aquiestoy';
-    estudiante.Cedula = '2321412412';
-    estudiante.CodigoEstudiante = 'est1';
-    estudiante.Nombre = 'ronal';
-    estudiante.Pago = true;
-    this.estudiantes.push(estudiante);*/
+
   }
 
-  download() {
+  downloadPdf() {
     var doc = new jsPDF();
     var positiony = 20;
     doc.text(20, 20, 'Lista de estudiantes matriculados');
@@ -38,7 +28,7 @@ export class ConsultarmatriculadosComponent implements OnInit {
     for (const estudiante of this.estudiantes) {
       doc.text(20, positiony, 'Estudiante ' + estudiante.Nombre);
       positiony = positiony + 10;
-      doc.text(20, positiony, 'Codigo: ' + estudiante.CodigoEstudiante);
+      doc.text(20, positiony, 'Codigo: ' + estudiante.CodigoEntrenador);
       positiony = positiony + 10;
       doc.text(20, positiony, 'Cedula: ' + estudiante.Cedula);
       positiony = positiony + 10;
