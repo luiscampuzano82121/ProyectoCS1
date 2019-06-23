@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {DataService} from '../../data.service';
 import {Estudiante} from '../../../models/Estudiante';
 import * as jsPDF from 'jspdf';
+import {ExcelService} from '../../services/excel.service';
 @Component({
   selector: 'app-consultarmatriculados',
   templateUrl: './consultarmatriculados.component.html',
@@ -9,7 +10,7 @@ import * as jsPDF from 'jspdf';
 })
 export class ConsultarmatriculadosComponent implements OnInit {
 
-  constructor(private dataService: DataService) { }
+  constructor(private dataService: DataService, private excelService: ExcelService) { }
   estudiantes: Estudiante[];
 
   ngOnInit() {
@@ -50,5 +51,9 @@ export class ConsultarmatriculadosComponent implements OnInit {
 
   getEstudiantes() {
     this.dataService.getEstudiantes().subscribe(data => this.estudiantes = data);
+  }
+
+  exportAsXLSX(): void {
+    this.excelService.exportAsExcelFile(this.estudiantes, 'Entrenadores');
   }
 }

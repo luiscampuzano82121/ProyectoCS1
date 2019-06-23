@@ -23,6 +23,7 @@ import { LogoComponent } from './logo/logo.component';
 import { FootergeneralComponent } from './common/footergeneral/footergeneral.component';
 import { HorariosComponent } from './entrenador/deportes-entrenador/horarios/horarios.component';
 import { ListadocategoriaComponent } from './entrenador/deportes-entrenador/listadocategoria/listadocategoria.component';
+import {ExcelService} from './services/excel.service';
 
 @NgModule({
   declarations: [
@@ -51,7 +52,7 @@ import { ListadocategoriaComponent } from './entrenador/deportes-entrenador/list
     HttpClientModule,
     FormsModule
   ],
-  providers: [DataService, CookieService],
+  providers: [DataService, CookieService, ExcelService],
   bootstrap: [AppComponent]
 })
 export class AppModule {

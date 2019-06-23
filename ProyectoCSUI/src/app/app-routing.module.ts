@@ -27,16 +27,17 @@ const routes: Routes = [
       { path: 'mejores-estudiantes', component: MejoresEstudiantesComponent}
     ]
   },
-      { path: 'entrenador', component: EntrenadorComponent,
-         children: [
-         { path: '', component: ConsultarmatriculadosComponent, pathMatch: 'full'},
-         { path: 'consultarmatriculados', component: ConsultarmatriculadosComponent},
-         { path: 'deportes-entrenador', component: DeportesEntrenadorComponent},
-           { path: 'horarios', component: HorariosComponent},
-           { path: 'listadocategoria', component: ListadocategoriaComponent}
-]},
-   { path: '**', redirectTo: 'sign-in', pathMatch: 'full'},
-      ];
+  {path: 'entrenador', component: EntrenadorComponent,
+    children: [
+      { path: '', component: ConsultarmatriculadosComponent, pathMatch: 'full'},
+      { path: 'consultarmatriculados', component: ConsultarmatriculadosComponent},
+      { path: 'deportes-entrenador', component: DeportesEntrenadorComponent},
+      { path: 'horarios', component: HorariosComponent},
+      { path: 'listadocategoria', component: ListadocategoriaComponent}
+      ]
+  },
+  { path: '**', redirectTo: 'sign-in', pathMatch: 'full'},
+];
 
 
 @NgModule({

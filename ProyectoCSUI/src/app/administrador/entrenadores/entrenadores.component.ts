@@ -3,6 +3,7 @@ import {DataService} from '../../data.service';
 import {Entrenador} from '../../../models/Entrenador';
 import * as jsPDF from 'jspdf';
 import {EntrenadorEnviar} from '../../../models/EntrenadorEnviar';
+import {ExcelService} from '../../services/excel.service';
 
 @Component({
   selector: 'app-entrenadores',
@@ -12,7 +13,7 @@ import {EntrenadorEnviar} from '../../../models/EntrenadorEnviar';
 export class EntrenadoresComponent implements OnInit {
   entrenadores: Entrenador[];
   entrenadorToCreate: EntrenadorEnviar;
-  constructor(private dataService: DataService) { }
+  constructor(private dataService: DataService, private excelService: ExcelService) { }
 
   downloadPdf() {
     var doc = new jsPDF();
@@ -53,5 +54,8 @@ export class EntrenadoresComponent implements OnInit {
     this.dataService.createEntrenador(this.entrenadorToCreate);
   }
 
+  exportAsXLSX(): void {
+    this.excelService.exportAsExcelFile(this.entrenadores, 'Entrenadores');
+  }
 }
 
