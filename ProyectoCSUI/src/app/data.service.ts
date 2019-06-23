@@ -76,24 +76,11 @@ export class DataService {
     create.subscribe();
   }
 
-  /*
-
-    deleteBuilding(id: number) {
-      const authToken = 'Bearer ' + this.cookies.get('authToken');
-      let headers = new HttpHeaders();
-      const url = this.environment.getApiUrl() + this.environment.deleteBuiding(id);
-      headers = headers.set('Authorization', authToken);
-      const deleteRequest = this.http.delete<void>(url, { headers: headers});
-      deleteRequest.subscribe();
-    }
-
-    updateBuilding(building: Building) {
-      const authToken = 'Bearer ' + this.cookies.get('authToken');
-      let headers = new HttpHeaders();
-      headers = headers.set('Authorization', authToken);
-      const url = this.environment.getApiUrl() + this.environment.getUrlBuilding();
-      const update = this.http.put(url, building, {headers: headers});
-      update.subscribe();
-    }
-    */
+  iniciarSesion(usuario: string, contraseña): Observable <string> {
+    const body = new HttpParams()
+      .set('usuario', usuario)
+      .set('contraseña', contraseña);
+    const create = this.http.post(this.url + ':8081/home/Login', body, {responseType: 'text'});
+    return create;
+  }
 }

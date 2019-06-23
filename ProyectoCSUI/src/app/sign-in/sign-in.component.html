@@ -12,7 +12,7 @@
     <form>
       <input type="text" [(ngModel)] = "login" id="login" class="fadeIn second" name="login" placeholder="Usuario">
       <input type="password" [(ngModel)] = "password" id="password" class="fadeIn third" name="password" placeholder="Contraseña">
-      <input type="submit" [routerLink]="['/administrador']" routerLinkActive="active" class="fadeIn fourth" value="Iniciar sesión">
+      <input type="submit" (click)="signIn()" class="fadeIn fourth" value="Iniciar sesión">
     </form>
 
     <!-- Remind Passowrd -->
