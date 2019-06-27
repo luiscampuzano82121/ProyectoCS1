@@ -3,11 +3,8 @@ package com.poli.proyecto.BackendPCS.Controller;
 import com.poli.proyecto.BackendPCS.Data.Deporte;
 import com.poli.proyecto.BackendPCS.Data.Entrenador;
 import com.poli.proyecto.BackendPCS.Data.Estudiante;
+import com.poli.proyecto.BackendPCS.Data.Login;
 import com.poli.proyecto.BackendPCS.Service.BackendService;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.jdbc.core.JdbcTemplate;
-import org.springframework.jdbc.core.SqlOutParameter;
-import org.springframework.jdbc.datasource.DriverManagerDataSource;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -63,6 +60,12 @@ public class BackendController {
     @PostMapping(value = "/Entrenadores")
     public String addEntrenador(@RequestBody Entrenador entrenador) {
         return backendService.addEntrenador(entrenador);
+    }
+
+    @PostMapping(value = "/login")
+    public List validateLogin(@RequestBody Login login) {
+
+        return backendService.validateLogin(login);
     }
 
 }

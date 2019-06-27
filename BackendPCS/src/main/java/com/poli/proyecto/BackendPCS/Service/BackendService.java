@@ -3,6 +3,7 @@ package com.poli.proyecto.BackendPCS.Service;
 import com.poli.proyecto.BackendPCS.Data.Deporte;
 import com.poli.proyecto.BackendPCS.Data.Entrenador;
 import com.poli.proyecto.BackendPCS.Data.Estudiante;
+import com.poli.proyecto.BackendPCS.Data.Login;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.datasource.DriverManagerDataSource;
 
@@ -22,6 +23,12 @@ public class BackendService {
         dataSource.setUrl("jdbc:mysql://localhost:3306/AdministradorDeportes");
         dataSource.setUsername("root");
         return dataSource;
+    }
+
+    public List validateLogin(Login usuario) {
+        String query = "select Type from Login where User=" + "'" + usuario.getUser() + "'" + " and " + "Password=" + "'" + usuario.getPassword() + "'";
+        List login = jdbcTemplate.queryForList(query);
+        return login;
     }
 
     public List getAllPadres(){
