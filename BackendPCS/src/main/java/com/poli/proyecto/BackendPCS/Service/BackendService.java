@@ -26,7 +26,7 @@ public class BackendService {
     }
 
     public List validateLogin(Login usuario) {
-        String query = "select Type from Login where User=" + "'" + usuario.getUser() + "'" + " and " + "Password=" + "'" + usuario.getPassword() + "'";
+        String query = "select User,Type from Login where User=" + "'" + usuario.getUser() + "'" + " and " + "Password=" + "'" + usuario.getPassword() + "'";
         List login = jdbcTemplate.queryForList(query);
         return login;
     }

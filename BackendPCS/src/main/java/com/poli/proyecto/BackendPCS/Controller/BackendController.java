@@ -64,7 +64,6 @@ public class BackendController {
 
     @PostMapping(value = "/login")
     public List validateLogin(@RequestBody Login login) {
-
         return backendService.validateLogin(login);
     }
 

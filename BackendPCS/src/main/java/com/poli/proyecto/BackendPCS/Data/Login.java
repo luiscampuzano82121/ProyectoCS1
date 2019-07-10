@@ -20,4 +20,17 @@ public class Login {
     public void setPassword(String password) {
         this.password = password;
     }
+
+    public Login(String user, String password) {
+        this.user = user;
+        this.password = password;
+    }
+
+    @Override
+    public String toString() {
+        return "Login{" +
+                "user='" + user + '\'' +
+                ", password='" + password + '\'' +
+                '}';
+    }
 }
