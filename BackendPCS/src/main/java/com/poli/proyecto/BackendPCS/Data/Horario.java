@@ -1,18 +1,16 @@
 package com.poli.proyecto.BackendPCS.Data;
 
-import java.sql.Date;
 
 public class Horario {
 
     private String codigoHorario;
-    private Date fecha;
+    private String horario;
+    private String codigoDeporte;
+    private String codigoEntrenador;
 
-    public Horario(String codigoHorario, Date fecha) {
+    public Horario(String codigoHorario, String horario) {
         this.codigoHorario = codigoHorario;
-        this.fecha = fecha;
-    }
-
-    public Horario() {
+        this.horario = horario;
     }
 
     public String getCodigoHorario() {
@@ -23,19 +21,30 @@ public class Horario {
         this.codigoHorario = codigoHorario;
     }
 
-    public Date getFecha() {
-        return fecha;
+    public String getHorario() {
+        return horario;
     }
 
-    public void setFecha(Date fecha) {
-        this.fecha = fecha;
+    public void setHorario(String horario) {
+        this.horario = horario;
     }
 
-    @Override
-    public String toString() {
-        return "Horario{" +
-                "codigoHorario='" + codigoHorario + '\'' +
-                ", fecha=" + fecha +
-                '}';
+    public Horario() {
+    }
+
+    public String getCodigoDeporte() {
+        return codigoDeporte;
+    }
+
+    public void setCodigoDeporte(String codigoDeporte) {
+        this.codigoDeporte = codigoDeporte;
+    }
+
+    public String getCodigoEntrenador() {
+        return codigoEntrenador;
+    }
+
+    public void setCodigoEntrenador(String codigoEntrenador) {
+        this.codigoEntrenador = codigoEntrenador;
     }
 }

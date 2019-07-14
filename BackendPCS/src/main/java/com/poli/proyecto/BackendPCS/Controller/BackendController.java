@@ -1,9 +1,6 @@
 package com.poli.proyecto.BackendPCS.Controller;
 
-import com.poli.proyecto.BackendPCS.Data.Deporte;
-import com.poli.proyecto.BackendPCS.Data.Entrenador;
-import com.poli.proyecto.BackendPCS.Data.Estudiante;
-import com.poli.proyecto.BackendPCS.Data.Login;
+import com.poli.proyecto.BackendPCS.Data.*;
 import com.poli.proyecto.BackendPCS.Service.BackendService;
 import org.springframework.web.bind.annotation.*;
 
@@ -46,25 +43,70 @@ public class BackendController {
         return backendService.getAllDeportes();
     }
 
+    @GetMapping("/Horarios")
+    public List getHorarios() {
+        return backendService.getAllHorarios();
+    }
+
     @PostMapping(value = "/Deportes")
-    public String addDeporte(@RequestBody Deporte deporte) {
-        return backendService.addDeporte(deporte);
+    public void addDeporte(@RequestBody Deporte deporte) {
+        backendService.addDeporte(deporte);
 
     }
 
     @PostMapping(value = "/Estudiantes")
-    public String addEstudiante(@RequestBody Estudiante estudiante) {
-        return backendService.addEstudiante(estudiante);
+    public void addEstudiante(@RequestBody Estudiante estudiante) {
+        backendService.addEstudiante(estudiante);
     }
 
     @PostMapping(value = "/Entrenadores")
-    public String addEntrenador(@RequestBody Entrenador entrenador) {
-        return backendService.addEntrenador(entrenador);
+    public void addEntrenador(@RequestBody Entrenador entrenador) {
+        backendService.addEntrenador(entrenador);
     }
 
-    @PostMapping(value = "/login")
+    @PostMapping(value = "/Login")
     public List validateLogin(@RequestBody Login login) {
         return backendService.validateLogin(login);
+    }
+
+    @GetMapping(value = "/Horarios/{codigoDeporte}")
+    public List getHorarios(@PathVariable String codigoDeporte) {
+        return backendService.getHorario(codigoDeporte);
+    }
+
+    @GetMapping(value = "/delHorario/{codigoHorario}")
+    public void deleteHorario(@PathVariable String codigoHorario) {
+        backendService.deleteHorario(codigoHorario);
+    }
+
+    @PostMapping(value = "/addHorario")
+    public void addHorario(@RequestBody Horario horario) {
+        backendService.addHorario(horario);
+    }
+
+    @PostMapping(value = "/actHorario")
+    public void actHorario(@RequestBody Horario horario) {
+        backendService.actHorario(horario);
+    }
+
+    @GetMapping(value = "/delEntrenador/{codigoEntrenador}")
+    public void deleteEntrenador(@PathVariable String codigoEntrenador) {
+        backendService.deleteEntrenador(codigoEntrenador);
+    }
+
+    @PostMapping(value = "/actEntrenador")
+    public void actEntrenador(@RequestBody Entrenador entrenador) {
+        backendService.actEntrenador(entrenador);
+    }
+
+    @GetMapping("/mejorEstudiantes")
+    public List getBestEstudiantes() {
+        return backendService.getBestEstudiantes();
+    }
+
+    @GetMapping("/mejorEntrenadores")
+    public List getBestEntrenadores() {
+        return backendService.getBestEntrenadores();
     }
 
 }
