@@ -85,6 +85,33 @@ public class BackendService {
         return horarios;
     }
 
+    public List getCategory(String idDeporte) {
+        String query = "select * from Categoria where Deporte_Codigo = '"+idDeporte+"'";
+        List categorias = jdbcTemplate.queryForList(query);
+        System.out.println("Resultado Categorias " + categorias);
+        return categorias;
+    }
+
+    public List recoverPassword(String usuario) {
+        String query = "select Password from Login where User = '"+usuario+"'";
+        List password = jdbcTemplate.queryForList(query);
+        System.out.println("Resultado password " + password);
+        return password;
+    }
+
+    public List getEstudiantesDeporte(String idDeporte) {
+        String query2="";
+        String query1 = "select Estudiante_CodigoEstudiante from Estudiante_has_deporte where Deporte_Codigo = '"+idDeporte+"'";
+        List estudiantes = jdbcTemplate.queryForList(query1);
+        List estudiantes2 = null;
+        System.out.println("Resultado estudiantesDeportes "+estudiantes);
+        for (int i = 0; i < estudiantes.size(); i++) {
+            query2="select * from Estudiante where CodigoEstudiante = '"+estudiantes.get(i)+"'";
+            estudiantes2.add(jdbcTemplate.queryForList(query2));
+        }
+        return estudiantes2;
+    }
+
     public void addDeporte(Deporte deporte) {
         try {
 
@@ -248,5 +275,6 @@ public class BackendService {
             System.out.println( "Error:" + e.getMessage());
         }
     }
+
 
 }

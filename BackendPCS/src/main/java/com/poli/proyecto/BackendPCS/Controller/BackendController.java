@@ -109,4 +109,18 @@ public class BackendController {
         return backendService.getBestEntrenadores();
     }
 
+    @GetMapping("/Categoria/{idDeporte}")
+    public List getCategoriaDeportes(@PathVariable String idDeporte){
+        return backendService.getCategory(idDeporte);
+    }
+
+    @GetMapping("/RecuperarContrasena/{usuario}")
+    public List recoverPassword(@PathVariable String usuario){
+        return backendService.recoverPassword(usuario);
+    }
+
+    @GetMapping("/Estudiantes/{idDeporte}")
+    public List estudiantesDeporte(@PathVariable String idDeporte){
+        return backendService.getEstudiantesDeporte(idDeporte);
+    }
 }
