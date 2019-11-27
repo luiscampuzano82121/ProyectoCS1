@@ -3,9 +3,11 @@ package com.poli.proyecto.BackendPCS.Service;
 import com.poli.proyecto.BackendPCS.Data.*;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.datasource.DriverManagerDataSource;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+@Service
 public class BackendService {
 
     private JdbcTemplate jdbcTemplate;
@@ -23,77 +25,77 @@ public class BackendService {
     }
 
     public List validateLogin(Login usuario) {
-        String query = "select User,Type from Login where User=" + "'" + usuario.getUser() + "'" + " and " + "Password=" + "'" + usuario.getPassword() + "'";
+        String query = "select User,Type from login where User=" + "'" + usuario.getUser() + "'" + " and " + "Password=" + "'" + usuario.getPassword() + "'";
         List login = jdbcTemplate.queryForList(query);
         System.out.println("Resultado Login " + login);
         return login;
     }
 
     public List getAllPadres(){
-        String query = "select * from Padre";
+        String query = "select * from padre";
         List padres = jdbcTemplate.queryForList(query);
         System.out.println("Resultado Padres " + padres);
         return padres;
     }
 
     public List getAllEntrenadores() {
-        String query = "select * from Entrenador";
+        String query = "select * from entrenador";
         List entrenadores = jdbcTemplate.queryForList(query);
         System.out.println("Resultado Entrenadores " + entrenadores);
         return entrenadores;
     }
 
     public List getBestEntrenadores() {
-        String query = "select * from Entrenador where Calificacion >= 4";
+        String query = "select * from entrenador where Calificacion >= 4";
         List entrenadores = jdbcTemplate.queryForList(query);
         System.out.println("Resultado Entrenadores " + entrenadores);
         return entrenadores;
     }
 
     public List getAllDeportes(){
-        String query = "select * from Deporte";
+        String query = "select * from deporte";
         List deportes = jdbcTemplate.queryForList(query);
         System.out.println("Resultado Deportes " + deportes);
         return deportes;
     }
 
     public List getAllEstudiantes(){
-        String query = "select * from Estudiante where Estudiante.Estado = 'Matriculado'";
+        String query = "select * from estudiante where estudiante.Estado = 'Matriculado'";
         List estudiantes = jdbcTemplate.queryForList(query);
         System.out.println("Resultado Estudiantes " + estudiantes);
         return estudiantes;
     }
 
     public List getBestEstudiantes() {
-        String query = "select * from Estudiante where Calificacion >= 4";
+        String query = "select * from estudiante where Calificacion >= 4";
         List estudiantes = jdbcTemplate.queryForList(query);
         System.out.println("Resultado Entrenadores " + estudiantes);
         return estudiantes;
     }
 
     public List getAllHorarios() {
-        String query = "select * from Horario";
+        String query = "select * from horario";
         List horarios = jdbcTemplate.queryForList(query);
         System.out.println("Resultado Horarios " + horarios);
         return horarios;
     }
 
     public List getHorario(String codigoDeporte) {
-        String query = "select * from Horario where Horario.Deporte_Codigo = " + "'" + codigoDeporte + "'";
+        String query = "select * from horario where horario.Deporte_Codigo = " + "'" + codigoDeporte + "'";
         List horarios = jdbcTemplate.queryForList(query);
         System.out.println("Resultado Horario " + horarios);
         return horarios;
     }
 
     public List getCategory(String idDeporte) {
-        String query = "select * from Categoria where Deporte_Codigo = '"+idDeporte+"'";
+        String query = "select * from categoria where Deporte_Codigo = '"+idDeporte+"'";
         List categorias = jdbcTemplate.queryForList(query);
         System.out.println("Resultado Categorias " + categorias);
         return categorias;
     }
 
     public List recoverPassword(String usuario) {
-        String query = "select Password from Login where User = '"+usuario+"'";
+        String query = "select Password from login where User = '"+usuario+"'";
         List password = jdbcTemplate.queryForList(query);
         System.out.println("Resultado password " + password);
         return password;
@@ -101,12 +103,12 @@ public class BackendService {
 
     public List getEstudiantesDeporte(String idDeporte) {
         String query2="";
-        String query1 = "select Estudiante_CodigoEstudiante from Estudiante_has_deporte where Deporte_Codigo = '"+idDeporte+"'";
+        String query1 = "select Estudiante_CodigoEstudiante from estudiante_has_deporte where Deporte_Codigo = '"+idDeporte+"'";
         List estudiantes = jdbcTemplate.queryForList(query1);
         List estudiantes2 = null;
         System.out.println("Resultado estudiantesDeportes "+estudiantes);
         for (int i = 0; i < estudiantes.size(); i++) {
-            query2="select * from Estudiante where CodigoEstudiante = '"+estudiantes.get(i)+"'";
+            query2="select * from estudiante where CodigoEstudiante = '"+estudiantes.get(i)+"'";
             estudiantes2.add(jdbcTemplate.queryForList(query2));
         }
         return estudiantes2;
@@ -121,7 +123,7 @@ public class BackendService {
                 deporte.setIdEntrenador("0");
             }
 
-            String query = "INSERT INTO Deporte (`Codigo`,`Nombre`,`Tipo`,`Costo`,`Entrenador_CodigoEntrenador`) VALUES ("
+            String query = "INSERT INTO deporte (`Codigo`,`Nombre`,`Tipo`,`Costo`,`Entrenador_CodigoEntrenador`) VALUES ("
                     + "'" + deporte.getCodigo() + "'" + ","
                     + "'" + deporte.getNombre() + "'" + ","
                     + "'" + deporte.getTipo() + "'" + ","
@@ -141,7 +143,7 @@ public class BackendService {
 
             System.out.println("Estudiante : " + estudiante.toString());
 
-            String query = "INSERT INTO Estudiante (`CodigoEntrenador`,`Nombre`,`Cedula`,`Telefono`,`Direccion`,`Calificacion`,`Estado`,Pago) VALUES ("
+            String query = "INSERT INTO estudiante (`CodigoEntrenador`,`Nombre`,`Cedula`,`Telefono`,`Direccion`,`Calificacion`,`Estado`,Pago) VALUES ("
                     + "'" + estudiante.getCodigoEntrenador() + "'" + ","
                     + "'" + estudiante.getNombre() + "'" + ","
                     + "'" + estudiante.getCedula() + "'" + ","
@@ -164,7 +166,7 @@ public class BackendService {
 
             System.out.println("Entrenador : " + entrenador.toString());
 
-            String query = "INSERT INTO Entrenador (`CodigoEntrenador`,`Nombre`,`Cedula`,`Telefono`,`Direccion`,`Calificacion`,`Nit`) VALUES ("
+            String query = "INSERT INTO entrenador (`CodigoEntrenador`,`Nombre`,`Cedula`,`Telefono`,`Direccion`,`Calificacion`,`Nit`) VALUES ("
                     + "'" + entrenador.getCodigoEntrenador() + "'" + ","
                     + "'" + entrenador.getNombre() + "'" + ","
                     + "'" + entrenador.getCedula() + "'" + ","
@@ -183,7 +185,7 @@ public class BackendService {
 
     public void deleteEntrenador(String codigoEntrenador) {
         try {
-            String query = "delete from Entrenador where Entrenador.CodigoEntrenador = " + "'" + codigoEntrenador + "'";
+            String query = "delete from entrenador where Entrenador.CodigoEntrenador = " + "'" + codigoEntrenador + "'";
 
             System.out.println("Delete Entrenador Query" + query);
 
@@ -201,7 +203,7 @@ public class BackendService {
             }
 
 
-            String query = "INSERT INTO Horario values ("
+            String query = "INSERT INTO horario values ("
                     + "'" + horario.getCodigoHorario() + "'" + ","
                     + "'" + horario.getHorario() + "'" + ","
                     + "'" + horario.getCodigoDeporte() + "'" + ","
@@ -217,7 +219,7 @@ public class BackendService {
 
     public void deleteHorario(String codigoHorario) {
         try {
-            String query = "delete from Horario where Horario.CodigoHorario = " + "'" + codigoHorario + "'";
+            String query = "delete from horario where Horario.CodigoHorario = " + "'" + codigoHorario + "'";
 
             System.out.println("Delete Horario Query" + query);
 
@@ -236,7 +238,7 @@ public class BackendService {
             }
 
 
-            String query = "UPDATE Horario set "
+            String query = "UPDATE horario set "
                     + "CodigoHorario = '" + horario.getCodigoHorario() + "'" + ","
                     + "Horario = '" + horario.getHorario() + "'" + ","
                     + "Deporte_Codigo = '" + horario.getCodigoDeporte() + "'" + ","
@@ -259,7 +261,7 @@ public class BackendService {
             }
 
 
-            String query = "UPDATE Entrenador set "
+            String query = "UPDATE entrenador set "
                     + "Nombre = '" + entrenador.getNombre() + "',"
                     + "Cedula = '" + entrenador.getCedula() + "',"
                     + "Telefono = '" + entrenador.getTelefono()+ "',"
