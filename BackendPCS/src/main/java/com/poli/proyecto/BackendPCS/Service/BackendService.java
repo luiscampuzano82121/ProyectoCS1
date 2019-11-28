@@ -13,10 +13,10 @@ public class BackendService {
     private JdbcTemplate jdbcTemplate;
 
     public BackendService() {
-        this.jdbcTemplate = new JdbcTemplate(this.Conectar());
+        this.jdbcTemplate = new JdbcTemplate(this.conectar());
     }
 
-    public DriverManagerDataSource Conectar() {
+    public DriverManagerDataSource conectar() {
         DriverManagerDataSource dataSource = new DriverManagerDataSource();
         dataSource.setDriverClassName("com.mysql.cj.jdbc.Driver");
         dataSource.setUrl("jdbc:mysql://localhost:3306/Prueba");

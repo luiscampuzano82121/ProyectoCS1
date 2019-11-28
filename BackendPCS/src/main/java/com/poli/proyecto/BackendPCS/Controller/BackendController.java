@@ -2,6 +2,9 @@ package com.poli.proyecto.BackendPCS.Controller;
 
 import com.poli.proyecto.BackendPCS.Data.*;
 import com.poli.proyecto.BackendPCS.Service.BackendService;
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -9,15 +12,17 @@ import java.util.List;
 @RestController
 @CrossOrigin(origins = "*", methods = {RequestMethod.GET, RequestMethod.POST})
 @RequestMapping(path = "/home")
+@Api
 public class BackendController {
 
     //Controller que recibe las peticiones
-
-    BackendService backendService = new BackendService();
+    @Autowired
+    BackendService backendService;
 
     public BackendController() {
     }
 
+    @ApiOperation("getHolaMundo")
     @GetMapping("/HolaMundo")
     public String HolaMundo() {
         return "Hola mundo";
